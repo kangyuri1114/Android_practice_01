@@ -11,7 +11,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)//레이아웃의 액티비티 메인 xml파일을 불러옴
-
         var sec: Int = 0
         var isRunning = false //초기에 실행되고 있지 않음
         var timerTask: Timer? = null  //nullable로 선언
