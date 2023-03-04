@@ -12,26 +12,26 @@
         android:layout_height="wrap_content"
         android:text="0.00"
         android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_point"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.274" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_random"
+        app:layout_constraintVertical_bias="0.536" />
 
     <TextView
         android:id="@+id/tv_point"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0.00"
-        android:textColor="#9C27B0"
-        android:textSize="96sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="#F44336"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_main"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
+        app:layout_constraintVertical_bias="0.93" />
 
     <TextView
         android:id="@+id/tv_random"
@@ -44,21 +44,33 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.39" />
+        app:layout_constraintVertical_bias="0.217" />
+
+    <TextView
+        android:id="@+id/tv_randomName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="목표점수"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_random"
+        app:layout_constraintEnd_toEndOf="@+id/tv_random"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/tv_random"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btn_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="1dp"
-        android:layout_marginBottom="160dp"
         android:text="start stop"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_timer"
-        app:layout_constraintVertical_bias="0.817" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
