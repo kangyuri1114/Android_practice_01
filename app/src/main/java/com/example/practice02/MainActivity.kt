@@ -11,7 +11,7 @@ import kotlin.concurrent.timer
 class MainActivity : AppCompatActivity() {
     var p_num = 3 //참가 인원수
     var k = 1//참가자 번호 매기기
-
+    val point_list = mutableListOf<Float>() //비어있는 리스트
     fun main(){
         setContentView(R.layout.activity_main)//리소스의 레이아웃의 액티비티 메인 xml파일(화면)을 불러옴
         var stage = 1 //isRunning을 지우고 stage1,2,3...으로 전환, stage 1은 초기값
@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
             else if(stage == 3){
                 timerTask?.cancel()  //nullable
                 val point = abs(sec-num).toFloat()/100 //절댓값 abs
+                //포인트 리스트에 포인트 추가하기
+                point_list.add(point)
                 tv_p.text = point.toString()
                 btn.text = "다음"
                 stage = 0
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
                 if(k < p_num) //총 참가자보다 k가 작아야 함
                     k++ //참가자 번호 증가
                 else
-                    println(k)
+                    println(point_list)
                 main()//재귀함수
             }
 
