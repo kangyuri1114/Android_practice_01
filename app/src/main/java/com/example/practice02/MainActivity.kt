@@ -9,6 +9,8 @@ import java.util.Timer
 import kotlin.concurrent.timer
 
 class MainActivity : AppCompatActivity() {
+    var p_num = 3 //참가 인원수
+    var k = 1//참가자 번호 매기기
 
     fun main(){
         setContentView(R.layout.activity_main)//리소스의 레이아웃의 액티비티 메인 xml파일(화면)을 불러옴
@@ -18,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         val tv_t: TextView = findViewById(R.id.tv_timer)
         val tv_r: TextView = findViewById(R.id.tv_random)
         val tv_p: TextView = findViewById(R.id.tv_point)
+        val tv_people: TextView = findViewById(R.id.tv_people)
+
         val btn: Button = findViewById(R.id.btn_main)
 
         //랜덤 수 생성하기 박스 변수
@@ -25,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         val num = random_box.nextInt(1001) //11을 넣으면 0부터 10까지 정수로 반환
         tv_r.text = (num.toFloat() / 100).toString()
         btn.text = "시작"
+        tv_people.text = "참가자 $k"
 
         btn.setOnClickListener {
             stage++ //클릭 시 stage가 올라감
@@ -48,6 +53,10 @@ class MainActivity : AppCompatActivity() {
                 stage = 0
             }
             else if(stage == 1){
+                if(k < p_num) //총 참가자보다 k가 작아야 함
+                    k++ //참가자 번호 증가
+                else
+                    println(k)
                 main()//재귀함수
             }
 
