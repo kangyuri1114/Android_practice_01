@@ -63,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         val tv_people: TextView = findViewById(R.id.tv_people)
 
         val btn: Button = findViewById(R.id.btn_mainStart)
+        val btn_Back: Button = findViewById(R.id.btn_Back)
 
         //랜덤 수 생성하기 박스 변수
         val random_box = java.util.Random() //변수
@@ -70,6 +71,13 @@ class MainActivity : AppCompatActivity() {
         tv_r.text = (num.toFloat() / 100).toString()
         btn.text = "시작"
         tv_people.text = "참가자 $k"
+
+        btn_Back.setOnClickListener{
+            //초기화 및 처음부터 다시 시작
+            point_list.clear()
+            k = 1
+            start()
+        }
 
         btn.setOnClickListener {
             stage++ //클릭 시 stage가 올라감
