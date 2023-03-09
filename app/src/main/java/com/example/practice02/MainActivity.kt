@@ -13,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     var k = 1//참가자 번호 매기기
     val point_list = mutableListOf<Float>() //비어있는 리스트
 
+    var isBlind = false
 
     fun start(){
         setContentView(R.layout.activity_start)
@@ -20,6 +21,17 @@ class MainActivity : AppCompatActivity() {
         val btn_plus: Button = findViewById(R.id.btn_plus)
         val btn_minus: Button = findViewById(R.id.btn_minus)
         val btn_mainStart: Button = findViewById(R.id.btn_mainStart)
+        val btn_BlindMode: Button = findViewById(R.id.btn_BlindMode)
+
+        btn_BlindMode.setOnClickListener{
+            isBlind = !isBlind
+            if(isBlind == true){
+                btn_BlindMode.text = "Blind Mode ON"
+            }
+            else{
+                btn_BlindMode.text = "Blind Mode OFF"
+            }
+        }
         tv_number.text = p_num.toString()
         
         btn_minus.setOnClickListener{
@@ -67,13 +79,18 @@ class MainActivity : AppCompatActivity() {
                     sec++
                     //UI를 바꾸기 위해서는 runOnUiThread를 사용해야 한다.
                     runOnUiThread { //실시간으로 화면을 바꾸기 위해 사용
-                        tv_t.text = (sec.toFloat() / 100).toString() //자료형 바꿔주기
+                        if (isBlind == false) {
+                            tv_t.text = (sec.toFloat() / 100).toString() //+자료형 바꿔주기
+                        } else if (isBlind == true && stage == 2){
+                            tv_t.text = "???"
+                        }
                     }
                     //println(sec)  //초가 흘러갈때마다 시스템 상 출력
                 }
                 btn.text = "정지"
             }
-            else if(stage == 3){
+            else if(stage == 3){ //정지한 이후에는 stage가 3으로 바뀜
+                tv_t.text = (sec.toFloat() / 100).toString() //멈출 때는 멈춰진 시간 표시
                 timerTask?.cancel()  //nullable
                 val point = abs(sec-num).toFloat()/100 //절댓값 abs
                 //포인트 리스트에 포인트 추가하기
