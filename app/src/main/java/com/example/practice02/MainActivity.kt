@@ -12,17 +12,45 @@ class MainActivity : AppCompatActivity() {
     var p_num = 3 //참가 인원수
     var k = 1//참가자 번호 매기기
     val point_list = mutableListOf<Float>() //비어있는 리스트
+
+
+    fun start(){
+        setContentView(R.layout.activity_start)
+        val tv_number: TextView = findViewById(R.id.tv_number)
+        val btn_plus: Button = findViewById(R.id.btn_plus)
+        val btn_minus: Button = findViewById(R.id.btn_minus)
+        val btn_mainStart: Button = findViewById(R.id.btn_mainStart)
+        tv_number.text = p_num.toString()
+        
+        btn_minus.setOnClickListener{
+            p_num--
+            if(p_num == 0){
+                p_num = 1
+            }
+            tv_number.text = p_num.toString()
+        }
+        btn_plus.setOnClickListener{
+            p_num++
+            if(p_num >= 10){
+                p_num = 10
+            }
+            tv_number.text = p_num.toString()
+        }
+        btn_mainStart.setOnClickListener {
+            main()
+        }
+    }
     fun main(){
         setContentView(R.layout.activity_main)//리소스의 레이아웃의 액티비티 메인 xml파일(화면)을 불러옴
         var stage = 1 //isRunning을 지우고 stage1,2,3...으로 전환, stage 1은 초기값
         var sec: Int = 0 //기본 단위가 mmsec이므로 나누기 100을 해야 1초임
         var timerTask: Timer? = null  //nullable로 선언
-        val tv_t: TextView = findViewById(R.id.tv_timer)
+        val tv_t: TextView = findViewById(R.id.tv_StartName)
         val tv_r: TextView = findViewById(R.id.tv_random)
-        val tv_p: TextView = findViewById(R.id.tv_point)
+        val tv_p: TextView = findViewById(R.id.tv_number)
         val tv_people: TextView = findViewById(R.id.tv_people)
 
-        val btn: Button = findViewById(R.id.btn_main)
+        val btn: Button = findViewById(R.id.btn_mainStart)
 
         //랜덤 수 생성하기 박스 변수
         val random_box = java.util.Random() //변수
@@ -55,19 +83,40 @@ class MainActivity : AppCompatActivity() {
                 stage = 0
             }
             else if(stage == 1){
-                if(k < p_num) //총 참가자보다 k가 작아야 함
+                if(k < p_num) { //총 참가자보다 k가 작아야 함
                     k++ //참가자 번호 증가
+                    main()
+                }
                 else
-                    println(point_list)
-                main()//재귀함수
+                    end()
             }
 
         }
     }
+
+    fun end(){
+        setContentView(R.layout.activity_end)
+        val tv_ResultName: TextView = findViewById(R.id.tv_ResultName)
+        val tv_Result: TextView = findViewById(R.id.tv_Result)
+        val btn_Retry: Button = findViewById(R.id.btn_Retry)
+
+        tv_Result.text = (point_list.maxOrNull()).toString()
+        var index_last = point_list.indexOf(point_list.maxOrNull())
+        tv_ResultName.text = "참가자 " + (index_last+1).toString()
+
+        btn_Retry.setOnClickListener{
+            //리스트 초기화 하기
+            point_list.clear()
+            k = 1
+
+            start()
+
+
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
-
-        main()
         super.onCreate(savedInstanceState)
-
+        start()
     }
 }

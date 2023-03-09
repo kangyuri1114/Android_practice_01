@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/tv_timer"
+        android:id="@+id/tv_StartName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="참가인원"
@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.32" />
 
     <TextView
-        android:id="@+id/tv_point"
+        android:id="@+id/tv_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="2"
@@ -32,7 +32,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_main"
+        android:id="@+id/btn_mainStart"
         android:layout_width="271dp"
         android:layout_height="94dp"
         android:text="Start"
@@ -40,7 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_point"
+        app:layout_constraintTop_toBottomOf="@+id/tv_number"
         app:layout_constraintVertical_bias="0.13" />
 
     <Button
