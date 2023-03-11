@@ -5,50 +5,64 @@
     android:id="@+id/background"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:rotation="0"
+    android:rotationY="0"
+    tools:context=".MainActivity"
+    tools:layout_editor_absoluteX="2dp"
+    tools:layout_editor_absoluteY="28dp">
 
     <TextView
         android:id="@+id/tv_StartName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:rotation="0"
+        android:rotationY="0"
         android:text="참가인원"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.214" />
 
     <TextView
         android:id="@+id/tv_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:rotation="0"
+        android:rotationY="0"
         android:text="2"
         android:textColor="#F44336"
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.393" />
 
     <Button
         android:id="@+id/btn_mainStart"
         android:layout_width="271dp"
         android:layout_height="94dp"
+        android:backgroundTint="#DFF192D5"
+        android:rotation="0"
+        android:rotationY="0"
         android:text="Start"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_number"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintVertical_bias="0.099" />
 
     <Button
         android:id="@+id/btn_BlindMode"
         android:layout_width="267dp"
         android:layout_height="50dp"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFF5F5"
+        android:backgroundTint="#6FF8ACE2"
+        android:rotation="0"
+        android:rotationY="0"
         android:text="Blind Mode OFF"
         android:textColor="#FFFFFF"
         android:textColorHighlight="#FFFFFF"
@@ -60,31 +74,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_number"
-        app:layout_constraintVertical_bias="0.68"
+        app:layout_constraintVertical_bias="0.542"
         app:rippleColor="#FFFFFF" />
 
     <Button
         android:id="@+id/btn_minus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#DFF8ACE2"
+        android:rotation="0"
+        android:rotationY="0"
         android:text="-"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.201"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392" />
 
     <Button
         android:id="@+id/btn_plus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#DFF8ACE2"
+        android:rotation="0"
+        android:rotationY="0"
         android:text="+"
         android:textSize="48sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintHorizontal_bias="0.801"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.392" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

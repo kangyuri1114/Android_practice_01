@@ -135,8 +135,6 @@ class MainActivity : AppCompatActivity() {
             k = 1
 
             start()
-
-
         }
     }
 
